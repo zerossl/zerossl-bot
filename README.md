@@ -40,3 +40,8 @@ sudo certbot-zerossl certonly --standalone -m anton@example.com -d mydomain.exam
 ```bash
 sudo certbot-zerossl --apache -m barbara@example.com -d myotherdomain.example.com
 ```
+
+```bash
+sudo certbot-zerossl --apache -d mythirddomain.example.com --zerossl-api-key 1234567890abcdef1234567890abcdef
+```
+
