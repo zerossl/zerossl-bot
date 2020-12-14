@@ -8,7 +8,7 @@ function parse_eab_credentials()
     ZEROSSL_EAB_KID=$(echo $1 | python -c "import sys, json; print(json.load(sys.stdin)['eab_kid'])")
     ZEROSSL_EAB_HMAC_KEY=$(echo $1 | python -c "import sys, json; print(json.load(sys.stdin)['eab_hmac_key'])")
     
-    # Check if hmac key starts with dash - this will confuse phython or certbot, see https://github.com/certbot/certbot/issues/7114
+    # Check if hmac key starts with dash - this will confuse python or certbot, see https://github.com/certbot/certbot/issues/7114
 	if  [[ $ZEROSSL_EAB_HMAC_KEY != -* ]];	then
 	    GOOD_KEY_FOUND=true
 	    CERTBOT_ARGS+=(--eab-kid "$ZEROSSL_EAB_KID" --eab-hmac-key "$ZEROSSL_EAB_HMAC_KEY" --server "https://acme.zerossl.com/v2/DV90")
