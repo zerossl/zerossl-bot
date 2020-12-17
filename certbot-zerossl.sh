@@ -23,16 +23,19 @@ while [[ "$#" -gt 0 ]]; do
             ZEROSSL_API_KEY="${1:18}"
         ;;
         --zerossl-api-key|-z)
-           ZEROSSL_API_KEY="${2}"
-           shift
+            ZEROSSL_API_KEY="${2}"
+            shift
         ;;
-        --zerossl-email=*) 
-            ZEROSSL_EMAIL="${1:16}"
+        --deploy-hook) 
+            DEPLOY_HOOK="${2}"
+            echo "Parsing deploy-hook: """${2}""""
+            CERTBOT_ARGS+=(--deploy-hook """${2}""")
+            shift
         ;;
         --email|--zerossl-email|-m)
-           ZEROSSL_EMAIL="${2}"
-           CERTBOT_ARGS+=(-m "${2}")
-           shift
+            ZEROSSL_EMAIL="${2}"
+            CERTBOT_ARGS+=(-m "${2}")
+            shift
         ;;
         *) CERTBOT_ARGS+=($1) ;;
     esac
@@ -52,4 +55,4 @@ elif [[ -n $ZEROSSL_EMAIL ]]; then
 fi
 
 echo "$(date) Calling: certbot ${CERTBOT_ARGS[@]}"
-certbot ${CERTBOT_ARGS[@]}
+certbot "${CERTBOT_ARGS[@]}"
