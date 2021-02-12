@@ -10,10 +10,10 @@ Installation
 1. Install the operating system packages for `curl` and `certbot` 
 2. Install the ZeroSSL wrapper script
    1. Quick: 
-      1. run `bash <(curl -s https://bot.zerossl.com/get-zerosslbot.sh)`
+      1. run `bash <(curl -s https://zerossl.com/get-zerosslbot.sh)`
       2. Done!
    2. Careful: 
-      1. Run `curl -s https://bot.zerossl.com/get-zerosslbot.sh > get-zerosslbot.sh`
+      1. Run `curl -s https://zerossl.com/get-zerosslbot.sh > get-zerosslbot.sh`
       2. Inspect the file to see that it does what it is supposed to do
       3. Run `source get-zerosslbot.sh`
       
