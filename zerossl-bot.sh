@@ -3,6 +3,7 @@
 
 if [ ! -x "$(which certbot)" ]; then
    echo You have to install certbot
+   exit 1
 fi
 
 CERTBOT_ARGS=()
