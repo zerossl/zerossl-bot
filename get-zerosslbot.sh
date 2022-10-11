@@ -6,9 +6,8 @@ ZEROSSLBOT_SCRIPT_LOCATION=${ZEROSSLBOT_SCRIPT_LOCATION-"https://github.com/zero
 function install_zerosslbot()
 {
     sudo bash <<EOF
-        curl -s "$ZEROSSLBOT_SCRIPT_LOCATION" > /tmp/zerossl-bot && \
         mkdir -p /usr/local/bin
-        mv /tmp/zerossl-bot /usr/local/bin/zerossl-bot && \
+        wget -qO - "$ZEROSSLBOT_SCRIPT_LOCATION" > /usr/local/bin/zerossl-bot
         chmod +x /usr/local/bin/zerossl-bot
 EOF
 }
