@@ -32,6 +32,8 @@ while [[ "$#" -gt 0 ]]; do
     shift
 done
 
+set -- "${CERTBOT_ARGS[@]}"
+
 if [[ -n $ZEROSSL_API_KEY ]]; then
     parse_eab_credentials $(curl -s -X POST "https://api.zerossl.com/acme/eab-credentials?access_key=$ZEROSSL_API_KEY")
 elif [[ -n $ZEROSSL_EMAIL ]]; then
