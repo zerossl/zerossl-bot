@@ -11,13 +11,13 @@ CERTBOT_ARGS=()
 function parse_eab_credentials()
 {
     export PYTHONIOENCODING=utf8
-    ZEROSSL_EAB_KID=$(echo $1 | python -c "import sys, json; print(json.load(sys.stdin)['eab_kid'])")
-    ZEROSSL_EAB_HMAC_KEY=$(echo $1 | python -c "import sys, json; print(json.load(sys.stdin)['eab_hmac_key'])")
+    ZEROSSL_EAB_KID=$(echo "$1" | python -c "import sys, json; print(json.load(sys.stdin)['eab_kid'])")
+    ZEROSSL_EAB_HMAC_KEY=$(echo "$1" | python -c "import sys, json; print(json.load(sys.stdin)['eab_hmac_key'])")
     CERTBOT_ARGS+=(--eab-kid "$ZEROSSL_EAB_KID" --eab-hmac-key "$ZEROSSL_EAB_HMAC_KEY" --server "https://acme.zerossl.com/v2/DV90")
 }
 
-while [[ "$#" -gt 0 ]]; do
-    case $1 in
+while [ "$#" -gt 0 ]; do
+    case "$1" in
         --zerossl-api-key=*)
             ZEROSSL_API_KEY="${1:18}"
         ;;
