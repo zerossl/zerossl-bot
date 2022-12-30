@@ -19,18 +19,18 @@ function parse_eab_credentials()
 while [ "$#" -gt 0 ]; do
     case "$1" in
         --zerossl-api-key=*)
-            ZEROSSL_API_KEY="${1#*=}"
+            ZEROSSL_API_KEY=${1#*=}
         ;;
         --zerossl-api-key|-z)
-           ZEROSSL_API_KEY="${2}"
+           ZEROSSL_API_KEY=$2
            shift
         ;;
         --zerossl-email=*)
-            ZEROSSL_EMAIL="${1#*=}"
+            ZEROSSL_EMAIL=${1#*=}
         ;;
         --email|--zerossl-email|-m)
-           ZEROSSL_EMAIL="${2}"
-           CERTBOT_ARGS+=(-m "${2}")
+           ZEROSSL_EMAIL=$2
+           CERTBOT_ARGS+=(-m "$2")
            shift
         ;;
         *) CERTBOT_ARGS+=("$1") ;;
