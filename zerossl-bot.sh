@@ -27,7 +27,7 @@ while [[ "$#" -gt 0 ]]; do
            CERTBOT_ARGS+=(-m "${2}")
            shift
         ;;
-        *) CERTBOT_ARGS+=($1) ;;
+        *) CERTBOT_ARGS+=("$1") ;;
     esac
     shift
 done
