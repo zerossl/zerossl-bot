@@ -1,7 +1,6 @@
 #!/bin/bash
 
-
-ZEROSSLBOT_SCRIPT_LOCATION=${ZEROSSLBOT_SCRIPT_LOCATION-"https://raw.githubusercontent.com/zerossl/zerossl-bot/master/zerossl-bot.sh"}
+ZEROSSLBOT_SCRIPT_LOCATION=${ZEROSSLBOT_SCRIPT_LOCATION-"https://github.com/zerossl/zerossl-bot/raw/master/zerossl-bot.sh"}
 
 function install_zerosslbot()
 {
