@@ -19,7 +19,7 @@ while [[ "$#" -gt 0 ]]; do
            ZEROSSL_API_KEY="${2}"
            shift
         ;;
-        --zerossl-email=*) 
+        --zerossl-email=*)
             ZEROSSL_EMAIL="${1:16}"
         ;;
         --email|--zerossl-email|-m)
