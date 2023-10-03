@@ -40,4 +40,5 @@ elif [[ -n $ZEROSSL_EMAIL ]]; then
     parse_eab_credentials "$(curl -s https://api.zerossl.com/acme/eab-credentials-email --data "email=$ZEROSSL_EMAIL")"
 fi
 
+echo "${CERTBOT_ARGS[@]}"
 certbot "${CERTBOT_ARGS[@]}"
