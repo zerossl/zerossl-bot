@@ -36,3 +36,9 @@ sudo zerossl-bot --apache -m barbara@example.com -d myotherdomain.example.com
 sudo zerossl-bot --apache -d mythirddomain.example.com --zerossl-api-key 1234567890abcdef1234567890abcdef
 ```
 
+```bash
+sudo zerossl-bot certonly --dns-cloudflare --dns-cloudflare-credentials /root/.secrets/cloudflare-api-token \
+                          --dns-cloudflare-propagation-seconds 60 -d fourth.example.com \
+                          --zerossl-api-key=1234567890abcdef1234567890abcdef
+```
+
