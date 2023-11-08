@@ -42,3 +42,7 @@ sudo zerossl-bot certonly --dns-cloudflare --dns-cloudflare-credentials /root/.s
                           --zerossl-api-key=1234567890abcdef1234567890abcdef
 ```
 
+Known issues
+-----
+
+There have been issues reported with certbot interactive prompt causing certificates of Let's Encrypt instead of ZeroSSL being issued. It is recommended to hand over parameters directly using the documented flags.
