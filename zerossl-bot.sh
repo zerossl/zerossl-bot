@@ -11,12 +11,16 @@ CERTBOT_ARGS=()
 function parse_eab_credentials()
 {
     python=$(command -v python3 || command -v python)
+    case "$("$python" -V)" in
+      ('Python 3'*) ;;
+      (*) echo 'No python3 detected'; exit 1 ;;
+    esac
     pyprog='import sys, json; js = json.loads(sys.argv[1]); print(js["eab_kid"]); print(js["eab_hmac_key"]);';
     {
-      read -r ZEROSSL_EAB_KID
-      read -r ZEROSSL_EAB_HMAC_KEY
+      IFS= read -r ZEROSSL_EAB_KID &&
+      IFS= read -r ZEROSSL_EAB_HMAC_KEY
     } <<< "$( PYTHONIOENCODING=utf8 "$python" -c "$pyprog" "$1" )"
-    CERTBOT_ARGS+=(--eab-kid "$ZEROSSL_EAB_KID" --eab-hmac-key "$ZEROSSL_EAB_HMAC_KEY" --server "https://acme.zerossl.com/v2/DV90")
+    CERTBOT_ARGS+=(--eab-kid "${ZEROSSL_EAB_KID:?}" --eab-hmac-key "${ZEROSSL_EAB_HMAC_KEY:?}" --server "https://acme.zerossl.com/v2/DV90")
 }
 
 while [ "$#" -gt 0 ]; do
@@ -49,5 +53,5 @@ elif [[ -n $ZEROSSL_EMAIL ]]; then
     parse_eab_credentials "$(curl -s https://api.zerossl.com/acme/eab-credentials-email --data "email=$ZEROSSL_EMAIL")"
 fi
 
-echo "${CERTBOT_ARGS[@]}"
+printf '%s ' certbot "${CERTBOT_ARGS[@]}"; echo
 certbot "${CERTBOT_ARGS[@]}"
