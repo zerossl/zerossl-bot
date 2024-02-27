@@ -42,6 +42,18 @@ sudo zerossl-bot certonly --dns-cloudflare --dns-cloudflare-credentials /root/.s
                           --zerossl-api-key=1234567890abcdef1234567890abcdef
 ```
 
+Recommendations
+----
+
+Use 
+
+```
+ --server https://acme.zerossl.com/v2/DV90
+```
+
+Option to ensure to use ZeroSSL server if preferred. Specify alternative URL if preferred.
+
+
 Known issues
 -----
 
