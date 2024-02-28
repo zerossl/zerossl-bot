@@ -45,13 +45,11 @@ sudo zerossl-bot certonly --dns-cloudflare --dns-cloudflare-credentials /root/.s
 Recommendations
 ----
 
-Use 
+Ensure correct ACME server URL is used (--server flag):
 
 ```
  --server https://acme.zerossl.com/v2/DV90
 ```
-
-Option to ensure to use ZeroSSL server if preferred. Specify alternative URL if preferred.
 
 
 Known issues
