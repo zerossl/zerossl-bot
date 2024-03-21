@@ -22,7 +22,7 @@ Usage
 
 To use the ZeroSSL ACME server instead of running `certbot` run `zerossl-bot`.
 
-**Important Note:** You should use `--zerossl-api-key=XXX` argument in order to make sure you get a ZeroSSL certificate instead of an Let's Encrypt certificate.
+**Important Note:** You should use the `--zerossl-api-key` argument in order to make sure you get a ZeroSSL certificate instead of an Let's Encrypt certificate.
 
 ### Examples
 
