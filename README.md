@@ -7,7 +7,7 @@ Electronic Frontier Foundation's (EFF's) Certbot with the ZeroSSL ACME server
 Installation
 ------------
 
-1. Install the operating system packages for `curl` and `certbot` 
+1. Install the operating system packages for `curl`, `certbot` and `python3`.
 2. Install the ZeroSSL wrapper script
    1. Quick: 
       1. run `bash <(wget -q -O - https://github.com/zerossl/zerossl-bot/raw/master/get-zerosslbot.sh)`
